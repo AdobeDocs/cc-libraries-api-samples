@@ -24,5 +24,6 @@ See the Quick Start tutorial to learn how to get values for these environment va
 In your terminal, start the sample:
 
 ```
+npm install
 npm start
 ```
