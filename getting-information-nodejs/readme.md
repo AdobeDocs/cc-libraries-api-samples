@@ -39,4 +39,4 @@ npm start
 
 ### 3. Open the page in your browser
 
-Naviate to `localhost:3000` and try the app.
+Navigate to `localhost:3000` and try the app.
