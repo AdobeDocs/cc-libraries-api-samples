@@ -26,9 +26,8 @@ router.get("/cc-libraries", async (req, res, next) => {
   }
 });
 
-router.get("/cc-libraries/:id", async (req, res, next) => {
-  const { id } = req.params;
-  console.log(id);
+router.get("/cc-libraries/:libraryId", async (req, res, next) => {
+  const { libraryId } = req.params;
 
   const options = {
     headers: {
@@ -38,7 +37,32 @@ router.get("/cc-libraries/:id", async (req, res, next) => {
   };
 
   try {
-    const response = await axios.get(`${baseURL}/${id}/elements`, options);
+    const response = await axios.get(
+      `${baseURL}/${libraryId}/elements`,
+      options
+    );
+    res.json(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/cc-libraries/:libraryId/:elementId", async (req, res, next) => {
+  const { libraryId, elementId } = req.params;
+
+  const options = {
+    headers: {
+      "x-api-key": process.env.API_KEY,
+      Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+    },
+  };
+
+  try {
+    const response = await axios.get(
+      `${baseURL}/${libraryId}/elements/${elementId}`,
+      options
+    );
+
     res.json(response.data);
   } catch (error) {
     console.log(error);
