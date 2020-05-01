@@ -10,7 +10,10 @@ It uses Node.js and Express to create an application server. The server was boot
 
 ## What it does
 
-This sample makes `GET` requests to various CC Libraries API endpoints via routes defined in `routes/index.js` and displays the results in the browser.
+This sample:
+
+1. Makes `GET` requests to various CC Libraries API endpoints via routes defined in `routes/index.js`
+2. Displays the results in the browser using `views/index.ejs` as the view template
 
 ## Setup
 
