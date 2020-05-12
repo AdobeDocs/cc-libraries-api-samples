@@ -21,11 +21,11 @@ describe("GET /", () => {
   });
 });
 
-describe("GET /cc-libraries", () => {
+describe("GET /cc-libraries/data", () => {
   it("Returns JSON data describing the user's libraries", (done) => {
     chai
       .request(server)
-      .get("/cc-libraries")
+      .get("/cc-libraries/data")
       .set("x-api-key", process.env.API_KEY)
       .set("Authorization", `Bearer ${process.env.ACCESS_TOKEN}`)
       .end((err, res) => {

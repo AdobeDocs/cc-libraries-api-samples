@@ -2,10 +2,10 @@ const getLibrariesButton = document.querySelector("#get-libraries");
 const responsesDiv = document.querySelector("#responses");
 
 getLibrariesButton.addEventListener("click", async () => {
-  const response = await fetch("/cc-libraries");
-  const json = await response.json();
+  const response = await fetch("/cc-libraries/data");
+  const jsonResponse = await response.json();
 
-  const libraryNamesList = json.libraries
+  const libraryNamesList = jsonResponse.libraries
     .map(
       (library) =>
         `<li data-libs-id="${library.id}">${library.name} <button onclick="showLibraryContent('${library.id}')">Show contents</button></li>`
@@ -16,7 +16,7 @@ getLibrariesButton.addEventListener("click", async () => {
 });
 
 const showLibraryContent = async (libraryId) => {
-  const response = await fetch(`/cc-libraries/${libraryId}`);
+  const response = await fetch(`/cc-libraries/data/${libraryId}`);
   const libraryJson = await response.json();
 
   const libraryElementsList = libraryJson.elements
@@ -30,11 +30,20 @@ const showLibraryContent = async (libraryId) => {
 };
 
 const showElementDetails = async (libraryId, elementId) => {
-  const response = await fetch(`/cc-libraries/${libraryId}/${elementId}`);
+  const parentElement = document.querySelector(
+    `[data-element-id="${elementId}"]`
+  );
+
+  const response = await fetch(`/cc-libraries/data/${libraryId}/${elementId}`);
   const elementJson = await response.json();
 
-  console.log(elementJson);
+  const elementMetadataList = getElementMetadataList(elementJson);
+  const imageListItem = await getImageListItem(elementJson);
 
+  parentElement.innerHTML += `<ul>${elementMetadataList}${imageListItem}</ul>`;
+};
+
+const getElementMetadataList = (elementJson) => {
   const createdDate = new Date(elementJson.created_date);
   const modifiedDate = new Date(elementJson.modified_date);
   const type = elementJson.type;
@@ -45,8 +54,20 @@ const showElementDetails = async (libraryId, elementId) => {
     })
     .join("");
 
-  const parentElement = document.querySelector(
-    `[data-element-id="${elementId}"]`
-  );
-  parentElement.innerHTML += `<ul>${elementDetails}</ul>`;
+  return elementDetails;
+};
+
+const getImageListItem = async (elementJson) => {
+  const thumbnailUrl = elementJson.thumbnail.rendition;
+  const dataUrl = await getImageData(thumbnailUrl);
+
+  const imageListItem = `<li><img src="${dataUrl}"></li>`;
+  return imageListItem;
+};
+
+const getImageData = async (url) => {
+  const response = await fetch(`/cc-libraries/image?url=${url}`);
+  const dataUrl = await response.text();
+
+  return dataUrl;
 };
