@@ -1,10 +1,10 @@
-# Getting Information about Libraries and Elements
+# Getting Library and Element Data: Node.js
 
 This sample shows how to get information about:
 
 - Your libraries
 - A single library
-- A single element
+- A single element (including an image)
 
 It uses Node.js and Express to create an application server. The server was bootstrapped with the [Express application generator](https://expressjs.com/en/starter/generator.html) and uses [EJS](https://ejs.co) for view templating.
 
