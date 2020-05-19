@@ -1,7 +1,7 @@
 import { getAccessToken } from './modules/variables.mjs';
 import { getAPIKey } from './modules/variables.mjs';
 
-var url = 'https://libraries.adobe.io/api/v1/libraries/';
+var url = 'https://cc-libraries.adobe.io/api/v1/libraries/';
 
 var myHeaders = new Headers();       
 myHeaders.append("x-api-key", getAPIKey());
@@ -33,10 +33,16 @@ function onLibrariesResult(result) {
     
     for(var i=0; i<libraryCount; i++) {
         var newItem = document.createElement("li");
+        var newLink = document.createElement("a");
+
         var libName = libraries.libraries[i].name
         var libId = libraries.libraries[i].id;
-        newOption.value = libId;
-        newOption.innerText = libName;
+        var libUrn = "https://assets.adobe.com/libraries/" + libraries.libraries[i].library_urn;
+
+        newLink.innerText = libName;
+        newLink.href = libUrn;
+        
+        newItem.appendChild(newLink);
         libSelector.appendChild(newItem);
 
     }
