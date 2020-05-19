@@ -22,7 +22,8 @@ router.get("/cc-libraries/data", async (req, res, next) => {
     const response = await axios.get(baseURL, options);
     res.json(response.data);
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    next(error);
   }
 });
 
@@ -43,7 +44,8 @@ router.get("/cc-libraries/data/:libraryId", async (req, res, next) => {
     );
     res.json(response.data);
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    next(error);
   }
 });
 
@@ -67,7 +69,8 @@ router.get(
 
       res.json(response.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      next(error);
     }
   }
 );
@@ -92,7 +95,8 @@ router.get("/cc-libraries/image", async (req, res, next) => {
     res.set("Content-Length", response.headers["content-length"]);
     res.send(dataUrl);
   } catch (error) {
-    console.log(error.message);
+    console.error(error);
+    next(error);
   }
 });
 
