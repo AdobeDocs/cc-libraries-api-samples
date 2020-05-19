@@ -10,6 +10,7 @@ myHeaders.append("Accept", "*/*");
 
 function getLibraries() {
 
+    // Limit the response to 20 Libraries
     var queryParams = "?limit=20";
     
     var requestOptions = {
@@ -31,10 +32,14 @@ function onLibrariesResult(result) {
     document.querySelector('#numLibraries').innerHTML = libraryCount;
     var libSelector = document.querySelector('#listLibraries');
     
+    // Clear existing libraries 
+    libSelector.innerHTML = "";
+    
     for(var i=0; i<libraryCount; i++) {
         var newItem = document.createElement("li");
         var newLink = document.createElement("a");
 
+        // Extract information from GET response
         var libName = libraries.libraries[i].name
         var libId = libraries.libraries[i].id;
         var libUrn = "https://assets.adobe.com/libraries/" + libraries.libraries[i].library_urn;

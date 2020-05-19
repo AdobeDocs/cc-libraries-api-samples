@@ -24,12 +24,10 @@ export function getAccessToken() {
 }
 ```
 
-See the Quick Start tutorial to learn how to get values for these variables.
+See the [developer credentials quick start tutorial](https://github.com/cc-libraries-api/api-docs/blob/master/tutorials/getting-developer-credentials.md) to learn how to get values for these variables.
 
 ### 2. Run the sample
 
-Make sure the files are in a folder that is served up by a web server. Using [http-server](https://www.npmjs.com/package/http-server) as an example, you can browse to this directory and run:
+Load `index.html` in your browser directly or use a web server like [http-server](https://www.npmjs.com/package/http-server) to serve the files via localhost. 
 
-```
-http-server
-```
+TODO: Address CORS issues
