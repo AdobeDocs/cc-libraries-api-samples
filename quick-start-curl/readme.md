@@ -1,4 +1,4 @@
-# Node.js
+# Quick Start: cURL
 
 This sample shows how to make a call from a simple cURL script that you can run from the command line.
 
@@ -12,14 +12,14 @@ This sample makes a `GET` request to `/libraries/`. It will then print the respo
 
 In the script, replace the `<API_KEY_HERE>` and `<TOKEN_HERE>` placeholders with your API key and bearer token. Do not include the surrounding angle brackets (`< >`) in your final script.
 
-See the Quick Start tutorial to learn how to get values for these credentials.
+See the Getting Your Developer Credentials tutorial to learn how to get values for these credentials.
 
 ### 2. Run the sample
 
 In your terminal, run the sample:
 
 ```shell
-chmod u+x curl.sh # First time only
+chmod u+x curl-script.sh # First time only
 
-./curl.sh
+./curl-script.sh
 ```
