@@ -1,0 +1,11 @@
+#colorPreview {
+    height: 150px;
+    width: 150px;
+    border-width: 1px;
+    border-color: grey;
+    border-style: inset;
+}
+
+.section {
+    padding-bottom: 10px;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Saving a Color Element to a CC Library</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <h1>Saving a Color Element to a CC Library</h1>
+        <div class="section">
+            <span>Step 1: Get your Libraries</span>
+            <button id="btnGetLibraries">Get CC Libraries</button>
+        </div>
+        <div class="section">
+            <div>Step 2: Select the Library to save your color</div>
+            <label for="selectLibraries">Choose a Library</label>
+            <select id="selectLibraries" disabled>
+                <option value="default" selected>Choose One</option>
+            </select>
+        </div>
+        <div class="section">
+            <div>Step 3: Select and name your color</div>
+            <div>
+                <label for="colorInput">Select a Color to Save</label>
+                <input id="colorInput" type="color" value="#008cb4" disabled>
+            </div>
+            <div>
+                <input id="colorName" type="text">
+                <label for="colorName">Give Your Color a Name (optional)</label> 
+            </div>
+            
+        </div>
+        <div class="section">
+            <div>Step 4: Select the color profile</div>
+            <label for="selectProfile">Select a Profile</label>
+            <select id="selectProfile" disabled>
+                <option value="Apple RGB">Apple RGB</option>
+                <option value="ARRIFLEX D-20 Daylight Log (by Adobe)">ARRIFLEX D-20 Daylight Log (by Adobe)</option>
+                <option value="ARRIFLEX D-20 Tungsten Log (by Adobe)">ARRIFLEX D-20 Tungsten Log (by Adobe)</option>
+                <option value="Camera RGB Profile">Camera RGB Profile</option>
+                <option value="CIE RGB">CIE RGB</option>
+                <option value="ColorMatch RGB">ColorMatch RGB</option>
+                <option value="Custom RGB profile">Custom RGB profile</option>
+                <option value="Dalsa Origin Tungsten Lin (by Adobe)">Dalsa Origin Tungsten Lin (by Adobe)</option>
+                <option value="DCDM X'Y'Z'(Gamma 2.6) S900K (by Adobe)">DCDM X'Y'Z'(Gamma 2.6) S900K (by Adobe)</option>
+                <option value="DCI P3 RGB (Gamma 2.6) 5900K (by Adobe)">DCI P3 RGB (Gamma 2.6) 5900K (by Adobe)</option>
+                <option value="e-sRGB">e-sRGB</option>
+                <option value="HD 709-A">HD 709-A</option>
+                <option value="HDTV (Rec. 709)">HDTV (Rec. 709)</option>
+                <option value="HDTV (Rec. 709) 16-235">HDTV (Rec. 709) 16-235</option>
+                <option value="PAL/SECAM">PAL/SECAM</option>
+                <option value="Panavision Genesis Tungsten Log (by Adobe)">Panavision Genesis Tungsten Log (by Adobe)</option>
+                <option value="ProPhoto RGB">ProPhoto RGB</option>
+                <option value="ROMM-RGB">ROMM-RGB</option>
+                <option value="SD 170M-A">SD 170M-A</option>
+                <option value="SDTV NTSC">SDTV NTSC</option>
+                <option value="SDTV NTSC 16-235">SDTV NTSC 16-235</option>
+                <option value="SDTV PAL">SDTV PAL</option>
+                <option value="SDTV PAL 16-235">SDTV PAL 16-235</option>
+                <option value="SMPTE-C">SMPTE-C</option>
+                <option value="sRGB IEC61966-2.1" selected>sRGB IEC61966-2.1</option>
+                <option value="Universal Camera Film Printing Density">Universal Camera Film Printing Density</option>
+                <option value="Viper FilmStream Daylight Log (by Adobe)">Viper FilmStream Daylight Log (by Adobe)</option>
+                <option value="Viper FilmStream Tungsten Log (by Adobe)">Viper FilmStream Tungsten Log (by Adobe)</option>
+                <option value="Wide Gamut RGB">Wide Gamut RGB</option>
+
+
+
+            </select>
+        </div>
+        <div class="section">
+            <div>Step 5: Save the color</div>
+            <button id="btnAddElement" disabled>Add Color</button>
+        </div>
+        
+        <script type="module" src="scripts.js" async></script>
+    </body>
+</html>

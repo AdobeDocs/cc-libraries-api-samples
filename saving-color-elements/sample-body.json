@@ -1,0 +1,23 @@
+{
+    "name": "My Color",
+    "type": "application/vnd.adobe.element.color+dcx",
+    "client": {
+      "deviceId": "DEV_ID",
+      "device": "DEV",
+      "app": "APP"
+    },
+    "representations": [
+      {
+        "type": "application/vnd.adobe.color+json",
+        "relationship": "primary",
+        "color#data": {
+          "mode": "RGB",
+          "value": {
+            "r": 217.00057983398438,
+            "g": 201.70120239257812,
+            "b": 98.71444702148438
+          }
+        }
+      }
+    ]
+  }
