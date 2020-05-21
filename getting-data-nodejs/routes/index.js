@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-const baseURL = "https://libraries.adobe.io/api/v1/libraries";
+const baseURL = "https://cc-libraries.adobe.io/api/v1/libraries";
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {

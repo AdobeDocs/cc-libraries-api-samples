@@ -1,7 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 
-const baseURL = "https://libraries.adobe.io/api/v1/libraries/";
+const baseURL = "https://cc-libraries.adobe.io/api/v1/libraries/";
 
 (async () => {
   const options = {
