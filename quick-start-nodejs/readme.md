@@ -1,4 +1,4 @@
-# Node.js
+# Quick Start: Node.js
 
 This sample shows how to make a call from a simple Node.js script using the Axios node module.
 
@@ -17,7 +17,7 @@ API_KEY=
 ACCESS_TOKEN=
 ```
 
-See the Quick Start tutorial to learn how to get values for these environment variables.
+See the Getting Your Developer Credentials tutorial to learn how to get values for these environment variables.
 
 ### 2. Run the sample
 
