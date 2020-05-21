@@ -42,6 +42,7 @@ router.get("/cc-libraries/data/:libraryId", async (req, res, next) => {
       `${baseURL}/${libraryId}/elements`,
       options
     );
+    
     res.json(response.data);
   } catch (error) {
     console.error(error);
