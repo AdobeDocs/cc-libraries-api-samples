@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CC Libraries API</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>CC Libraries API</h1>
+    <p>Create an asset-based element</p>
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <% if (libraries) { %>
+      <div>
+        <label for="library-select">Choose a CC Library</label>
+        <select name="libraryUrn" id="library-select">
+          <% libraries.forEach(library => { %>
+          <option value="<%= library.library_urn %>"
+            ><%= library.name %></option
+          >
+          <% }) %>
+        </select>
+      </div>
+
+      <div>
+        <label for="file">Choose a file</label>
+        <input
+          id="file"
+          type="file"
+          name="asset"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <% } else { %>
+      <p>
+        <i
+          >Unable to load your CC Libraries. Please check the readme for how to
+          set up your .env file.</i
+        >
+      </p>
+      <% } %>
+    </form>
+  </body>
+</html>
