@@ -15,7 +15,9 @@ const writeLog = async (error) => {
   try {
     await fs.mkdir("logs");
   } catch (error) {
-    console.log("Unable to write error log file", error);
+    if (error.code !== "EEXIST") {
+      console.log("Unable to write error log file", error);
+    }
   }
 
   try {

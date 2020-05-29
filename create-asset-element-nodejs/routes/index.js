@@ -44,7 +44,10 @@ router.post("/", upload.single("asset"), async (req, res, next) => {
 
   try {
     const responseJson = await createElement(libraryUrn, file, thumbnail);
-    res.json(responseJson);
+
+    res.render("success", {
+      responseJson,
+    });
   } catch (error) {
     return next(error);
   }
@@ -71,6 +74,7 @@ const uploadAsset = async (libraryUrn, file) => {
 
   try {
     const response = await axios(options);
+
     return response.data;
   } catch (error) {
     throw error;
@@ -106,6 +110,7 @@ const createElement = async (libraryUrn, file, thumbnail) => {
 
   try {
     const response = await axios(options);
+
     return response.data;
   } catch (error) {
     throw error;
