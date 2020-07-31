@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Welcome to <%= title %></h1>
+    <% if (!user) { %>
+    <button id="adobe-auth-login">Log in with your Adobe ID</button>
+    <% } else { %>
+    <h2>User profile info</h2>
+    <ul>
+      <li><%= user.name %></li>
+      <li><%= user.email %></li>
+    </ul>
+    <button id="get-libraries">List CC Libraries</button>
+    <button id="adobe-auth-logout">Log out</button>
+    <div id="libraries"></div>
+    <% } %>
+
+    <script src="javascripts/index.js"></script>
+  </body>
+</html>
