@@ -78,13 +78,13 @@ router.get(
 
 router.get("/cc-libraries/image", async (req, res, next) => {
   let { url } = req.query;
-  url = url.slice(0, url.lastIndexOf("/"));
 
   const options = {
     responseType: "arraybuffer",
     headers: {
       "x-api-key": process.env.API_KEY,
       Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+      "Accept": "*/*",
     },
   };
 
