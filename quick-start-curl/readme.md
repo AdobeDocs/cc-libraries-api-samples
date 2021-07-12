@@ -12,7 +12,7 @@ This sample makes a `GET` request to `/libraries/`. It will then print the respo
 
 In the script, replace the `<API_KEY_HERE>` and `<TOKEN_HERE>` placeholders with your API key and bearer token. Do not include the surrounding angle brackets (`< >`) in your final script.
 
-See the Getting Your Developer Credentials tutorial to learn how to get values for these credentials.
+See the [How To Get Your Developer Credentials](https://www.adobe.io/creative-cloud-libraries/docs/integrate/setup/developer-credentials/) tutorial to learn how to get values for these credentials.
 
 ### 2. Run the sample
 

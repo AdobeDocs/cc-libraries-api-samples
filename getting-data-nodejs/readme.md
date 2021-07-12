@@ -13,7 +13,7 @@ It uses Node.js and Express to create an application server. The server was boot
 This sample:
 
 1. Makes `GET` requests to various CC Libraries API endpoints via routes defined in `routes/index.js`
-2. Displays the results in the browser using: 
+2. Displays the results in the browser using:
   - `views/index.ejs` as the view template
   - `public/javascripts/cc-libraries.js` for the client-side JavaScript
 
@@ -28,7 +28,7 @@ API_KEY=
 ACCESS_TOKEN=
 ```
 
-See the Getting Your Developer Credentials tutorial to learn how to get values for these environment variables.
+See the [How To Get Your Developer Credentials](https://www.adobe.io/creative-cloud-libraries/docs/integrate/setup/developer-credentials/) tutorial to learn how to get values for these environment variables.
 
 ### 2. Run the sample
 

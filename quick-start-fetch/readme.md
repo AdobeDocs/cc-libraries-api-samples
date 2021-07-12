@@ -6,7 +6,7 @@ WARNING: At the moment, you may encouter CORS errors when calling the API from t
 
 ## What it does
 
-This sample creates a very basic website with a button that when clicked, will list the libraries you have access to on the page using a `GET` request to the `/libraries/` endpoint. 
+This sample creates a very basic website with a button that when clicked, will list the libraries you have access to on the page using a `GET` request to the `/libraries/` endpoint.
 
 ## Setup
 
@@ -24,10 +24,10 @@ export function getAccessToken() {
 }
 ```
 
-See the [developer credentials quick start tutorial](https://github.com/cc-libraries-api/api-docs/blob/master/tutorials/getting-developer-credentials.md) to learn how to get values for these variables.
+See the [How To Get Your Developer Credentials](https://www.adobe.io/creative-cloud-libraries/docs/integrate/setup/developer-credentials/) tutorial to learn how to get values for these variables.
 
 ### 2. Run the sample
 
-Load `index.html` in your browser directly or use a web server like [http-server](https://www.npmjs.com/package/http-server) to serve the files via localhost. 
+Load `index.html` in your browser directly or use a web server like [http-server](https://www.npmjs.com/package/http-server) to serve the files via localhost.
 
 TODO: Address CORS issues
