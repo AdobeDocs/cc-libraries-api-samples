@@ -51,6 +51,10 @@ npm start
 
 ### 2. Register an event
 
-In your project overview in the Adobe Developer Console, click on `Add to Project` and choose `Event`. From there, select `Creative Cloud Libraries` and go to the next page. On the `Choose event subscriptions` page, subscribe to all of the listed events by clicking on their corresponding checkboxes. After, continue to the next page and choose `OAuth` as the type of authentication. From there, choose the same OAuth platform and redirection settings as in section 1.
+In your project overview in the Adobe Developer Console, click on `Add to Project` and choose `Event`. From there, select `Creative Cloud Libraries` and go to the next page.
+
+On the `Choose event subscriptions` page, subscribe to all of the listed events by clicking on their corresponding checkboxes. After, continue to the next page.
+
+Next, choose `OAuth` as the authentication type. On the next page, choose the same OAuth platform and redirection settings as in section 1 (most likely `Web` with the default redirection URLs).
 
 Next, on the `Event registration details` page, choose a name and description for the event. For the webhook URL, use the publicly available URL printed to your terminal from section 2. Once done, click on `Save configured events` to register the event.
