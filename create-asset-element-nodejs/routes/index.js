@@ -3,7 +3,7 @@ const fs = require("fs");
 const FormData = require("form-data");
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
+const {default: axios } = require("axios");
 const multer = require("multer");
 const upload = multer({ dest: "./tmp" });
 const { writeLog } = require("../logger");
@@ -37,22 +37,22 @@ router.post("/", upload.single("asset"), async (req, res, next) => {
 
   let thumbnail;
   try {
-    thumbnail = await uploadAsset(libraryUrn, file);
-  } catch (error) {
+    thumbnail= await uploadAsset(libraryUrn, file);
+  }catch(error) {
     return next(error);
   }
-
   try {
     const responseJson = await createElement(libraryUrn, file, thumbnail);
-
     res.render("success", {
       responseJson,
     });
-  } catch (error) {
-    return next(error);
+  }catch(error){
+    throw error;
   }
 });
 
+// NOTE: This method only works if file is under 5mb
+// files under 5mb in size may be uploaded in one shot, files over 5mb must be broken into chunks
 const uploadAsset = async (libraryUrn, file) => {
   const imgData = fs.createReadStream(file.path);
 
@@ -74,7 +74,6 @@ const uploadAsset = async (libraryUrn, file) => {
 
   try {
     const response = await axios(options);
-
     return response.data;
   } catch (error) {
     throw error;
@@ -95,10 +94,13 @@ const createElement = async (libraryUrn, file, thumbnail) => {
         type: file.mimetype,
         relationship: "rendition",
         storage_href: thumbnail.storage_href,
-      },
-    ],
+        content_length: thumbnail.content_length,
+        etag: thumbnail.etag,
+        md5: thumbnail.md5,
+        version: thumbnail.version,
+      },]
   };
-
+  console.log(elementData)
   const options = {
     method: "post",
     headers: {
@@ -110,10 +112,9 @@ const createElement = async (libraryUrn, file, thumbnail) => {
 
   try {
     const response = await axios(options);
-
     return response.data;
   } catch (error) {
-    throw error;
+    console.log(error.message);
   }
 };
 

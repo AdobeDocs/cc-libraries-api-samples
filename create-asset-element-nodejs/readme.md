@@ -1,4 +1,4 @@
-# Creating an Asset-based Element: Node.js
+# Creating an Asset-based Element: Node.js 
 
 This sample shows how to create an asset-based element in a given library. From the user perspective, it represents the ability to upload an image to a library they select.
 
