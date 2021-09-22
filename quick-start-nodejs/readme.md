@@ -17,7 +17,7 @@ API_KEY=
 ACCESS_TOKEN=
 ```
 
-See the Getting Your Developer Credentials tutorial to learn how to get values for these environment variables.
+See the [How To Get Your Developer Credentials](https://www.adobe.io/creative-cloud-libraries/docs/integrate/setup/developer-credentials/) tutorial to learn how to get values for these environment variables.
 
 ### 2. Run the sample
 
