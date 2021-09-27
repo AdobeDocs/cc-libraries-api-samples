@@ -48,14 +48,15 @@ Your `CLIENT_ID` and `CLIENT_SECRET` can be retrieved from the Adobe Developer C
 
 Adobe OAuth 2.0 requires SSL, so you will need to create a self-signed cert using the OpenSSL CLI.
 
-Be sure to run the OpenSSL CLI command in the repo's `bin` directory:
+If you don't have the `mkcert` tool installed already, install it via Homebrew.
+
+Be sure to run the OpenSSL CLI command in the repo's top level directory:
 
 ```shell
-% cd bin
-% openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+% mkcert localhost
 ```
 
-Make sure that after running this command you have the `cert.pem` and `key.pem` files at the top level of the `bin` directory.
+Make sure that after running this command you have the `localhost-key.pem` and `localhost.pem` files at the top level directory.
 
 ## Usage
 

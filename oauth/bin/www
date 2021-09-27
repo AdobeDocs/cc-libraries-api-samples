@@ -21,8 +21,8 @@ app.set("port", port);
  * Create HTTP server.
  */
 const credentials = {
-  cert: fs.readFileSync(path.join(__dirname, "./cert.pem")),
-  key: fs.readFileSync(path.join(__dirname, "./key.pem")),
+  cert: fs.readFileSync(path.join(__dirname, "../localhost.pem")),
+  key: fs.readFileSync(path.join(__dirname, "../localhost-key.pem")),
 };
 const server = https.createServer(credentials, app);
 
