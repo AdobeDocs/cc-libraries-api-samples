@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <button id="log-in" onclick="location.href='/login'">Log In First</button>
+    <button id="get-libraries">Get CC Libraries</button>
+    <div id="responses"></div>
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <div>
+        <% if (libraries) { %>
+        <h2>Upload an asset</h2>
+        <p>File must be under 5mb. </p>
+        <label for="library-select">Choose a CC Library</label>
+        <select name="libraryUrn" id="library-select">
+          <% libraries.forEach(library => { %>
+          <option value="<%= library.library_urn %>"
+            ><%= library.name %></option
+          >
+          <% }) %>
+        </select>
+      </div>
+
+      <div>
+        <label for="file">Choose a file</label>
+        <input
+          id="file"
+          type="file"
+          name="asset"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+
+      <p id="warning"></p>
+
+      <button id="submit" type="submit">Submit</button>
+      <% } else { %>
+        <p>
+          <i
+            > Log in first </i
+          >
+        </p>
+        <% } %>
+    </form>
+
+    <script src="/javascripts/index.js"></script>
+    <script src="/javascripts/cc-javascript.js"></script>
+  </body>
+</html>
