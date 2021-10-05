@@ -20,10 +20,18 @@ app.set("port", port);
 /**
  * Create HTTP server.
  */
+
 const credentials = {
-  cert: fs.readFileSync(path.join(__dirname, "./cert.pem")),
-  key: fs.readFileSync(path.join(__dirname, "./key.pem")),
+  cert: fs.readFileSync(path.join(__dirname, "../localhost.pem")),
+  key: fs.readFileSync(path.join(__dirname, "../localhost-key.pem")),
 };
+
+if (!fs.existsSync(path.join(__dirname, "../localhost.pem")) || !fs.existsSync(path.join(__dirname, "../localhost-key.pem"))) {
+  // don't "throw" an error to make it clear it's not an "internal" error
+  console.error('Please generate certificates using mkcert, first. See README.md for more details.')
+  process.exit(1); 
+}
+
 const server = https.createServer(credentials, app);
 
 /**

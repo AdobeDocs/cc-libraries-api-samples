@@ -28,7 +28,6 @@ router.get("/", async (req, res, next) => {
           email: adobeIdObj.email,
         }
       : null;
-
   res.render("index", {
     title: "Creative Cloud Libraries + Adobe OAuth",
     user,
@@ -43,10 +42,10 @@ containing the authorization code needed to retrieve the user's access token.
 */
 router.get("/adobe-auth/login", (req, res, next) => {
   const requestUrl = url.format({
-    pathname: "https://ims-na1.adobelogin.com/ims/authorize",
+    pathname: "https://ims-na1.adobelogin.com/ims/authorize/v2",
     query: {
       client_id: process.env.CLIENT_ID,
-      scope: "openid,creative_sdk",
+      scope: "openid,creative_sdk,email,profile",
       response_type: "code",
       redirect_uri: "https://localhost:8000/adobe-auth/login/token",
     },
@@ -72,7 +71,7 @@ router.get("/adobe-auth/login/token", async (req, res, next) => {
 
   if (code && !adobeIdObj) {
     const requestUrl = url.format({
-      pathname: "https://ims-na1.adobelogin.com/ims/token/",
+      pathname: "https://ims-na1.adobelogin.com/ims/token/v3",
       query: {
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
@@ -86,12 +85,32 @@ router.get("/adobe-auth/login/token", async (req, res, next) => {
         headers: { "content-type": "application/x-www-form-urlencoded" },
       });
       adobeIdObj = adobeResponse.data;
-
-      res.redirect("/");
+      res.redirect("/profile");
     } catch (error) {
       console.log("Unable to authenticate with Adobe IMS", error);
       next(error);
     }
+  }
+});
+
+router.get("/profile", async (req, res, next) => {
+  const options = {
+    headers: {
+      "x-api-key": process.env.CLIENT_ID,
+      Authorization: `Bearer ${adobeIdObj.access_token}`,
+    },
+  };
+  const uri = "https://ims-na1.adobelogin.com/ims/userinfo/v2";
+  try {
+    axios.get(uri, options)
+    .then((adobeResponse)=>{
+      adobeIdObj.name = adobeResponse.data.name;
+      adobeIdObj.email = adobeResponse.data.email;
+      res.redirect("/");
+    })
+  }catch (error) {
+    console.log("Unable to get profile info", error.reason);
+    next(error);
   }
 });
 
@@ -102,18 +121,8 @@ their Adobe ID.
 Also, destroy the `adobeIdObj` containing user tokens and data on the server.
 */
 router.get("/adobe-auth/logout", async (req, res, next) => {
-  const requestUrl = url.format({
-    pathname: "https://ims-na1.adobelogin.com/ims/logout/v1",
-    query: {
-      client_id: process.env.CLIENT_ID,
-      access_token: adobeIdObj.access_token,
-      redirect_uri: "https://localhost:8000/",
-    },
-  });
-
   adobeIdObj = null;
-
-  res.send({ requestUrl });
+  res.redirect("/");
 });
 
 /*

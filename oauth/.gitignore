@@ -61,5 +61,5 @@ typings/
 .next
 
 # certs
-key.pem
-cert.pem
+localhost-key.pem
+localhost.pem
