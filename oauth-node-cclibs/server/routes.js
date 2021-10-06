@@ -11,7 +11,7 @@ const baseURL = "https://cc-libraries.adobe.io/api/v1/libraries";
 const scopes = 'openid,creative_sdk,profile,address,AdobeID,email,cc_files,cc_libraries';
 const redirect_uri = 'https://localhost:3000/callback/'
 
-// The default GET route provided by express-generator
+// First page that renders -- after login, it makes a call to Libraries API and sends the response to the client side
 router.get("/", async function(req, res, next) {
   const options = {
     headers: {
@@ -49,7 +49,6 @@ router.get('/callback', async (req, res, next) => {
     req.session.accessToken = response.data.access_token;
     req.session.refreshToken = response.data.refresh_token;
     res.redirect('/');
-    //res.render('index', {title:'Login Succeeded!', libraries : ''});
   } catch(error){
     console.log(error);
     res.render('index', {title:'Login failed'})
