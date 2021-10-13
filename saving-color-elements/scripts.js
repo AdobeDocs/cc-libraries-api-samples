@@ -15,9 +15,10 @@ function getLibraries() {
     var requestOptions = {
       method: 'GET',
       headers: myHeaders,
-      redirect: 'follow'
+      redirect: 'follow',
+      mode: 'no-cors',
     };
-
+    console.log(requestOptions);
     fetch(url + queryParams, requestOptions)
       .then(response => response.text())
       .then(result => onLibrariesResult(result))

@@ -4,7 +4,6 @@ This sample will use Node.js and Express to build an app that:
 1. Runs on `https://localhost:3000`
 2. Sets up authentication using the [OAuth 2.0](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md) 
 3. Create routes to make calls to CC Libraries API endpoints
-4. > Basic initial setup of Asset Browser SDK
 
 ## Technology Used
 
@@ -35,7 +34,9 @@ $ npm install
 
 ### Store your Client ID and Client Secret as Environment Variables 
 
-Set up a `.env` file to store the client ID and client secret. Create it on the same level as the `package.json` file -- you should see that it is already included in the `.gitignore` file to ensure that our source control history won't contain references to your secrets. 
+Set up a `.env` file to store the client ID and client secret. You can use the `.env.example` file as a guideline.
+
+Create it on the same level as the `package.json` file -- you should see that it is already included in the `.gitignore` file to ensure that our source control history won't contain references to your secrets. 
 
 ```
 API_KEY=######################
