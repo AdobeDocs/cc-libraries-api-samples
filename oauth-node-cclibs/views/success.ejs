@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CC Libraries API</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>CC Libraries API - Success!</h1>
+    <p>You created <%= responseJson.total_count %> asset-based element.</p>
+    <p>Details:</p>
+    <ul>
+      <li>Name: <%= responseJson.elements[0].name %></li>
+      <li>Type: <%= responseJson.elements[0].type %></li>
+    </ul>
+
+    <p><a href="/">Return to upload form</a></p>
+  </body>
+</html>
