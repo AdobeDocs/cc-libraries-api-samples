@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>I/O Event Sample</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/bulma.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/assets/jquery.min.js"></script>
+    <script src="/main.js"></script>
+  </head>
+  <body>
+    <section class="hero is-danger">
+      <div class="hero-body">
+        <h1 class="title">I/O Events Sample</h1>
+        <p class="subtitle mt-5">Interact with the buttons below to invoke CC Library API calls that then trigger a webhook event. An HTTP request will be sent and the corresponding API and webhook responses will be logged below.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container has-text-centered">
+        <label class="label is-large mb-5">I/O Event Triggers</label>
+        <div class="field is-grouped is-grouped-centered">
+          <div class="control">
+            <button id="create" class="button is-success is-outlined">Create Library</button>
+          </div>
+          <div class="control">
+            <button id="update" class="button is-info is-outlined">Update Library</button>
+          </div>
+          <div class="control">
+            <button id="delete" class="button is-danger is-outlined">Delete Library</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="columns has-text-centered">
+        <div class="column is-half">
+          <h2 class="title">API Responses</h2>
+          <div id="api-list" class="container"></div>
+        </div>
+        <div class="column is-half">
+          <h2 class="title">Webhook Responses</h2>
+          <div id="webhook-list" class="container"></div>
+        </div>
+      </div>
+    </section>
+    <script id="resTemplate" type="text/x-jquery-tmpl">
+      <div class="response mb-4 has-text-left">
+        <span id="tag" class="tag is-medium">${tag}</span>
+        <pre><code>${res}</code></pre>
+      </div>
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+  </body>
+</html>

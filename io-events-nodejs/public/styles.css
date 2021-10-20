@@ -1,0 +1,25 @@
+.container .field {
+  margin: auto;
+  max-width: 75%;
+}
+
+.hero-body .subtitle {
+  font-size: larger;
+}
+
+.response {
+  position: relative;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.response .tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.is-rounded {
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+}
