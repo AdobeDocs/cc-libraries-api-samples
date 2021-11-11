@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     if (loggedIn) {
         const api = new CCAPI(req.session.accessToken);
         libraries = (await api.getLibraries()).libraries;
-        console.log(libraries);
     }
     res.render('home.html', {
         loggedIn: req.session.accessToken !== undefined,

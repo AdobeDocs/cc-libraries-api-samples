@@ -26,7 +26,6 @@ export class CCAPI {
     }
 
     public async getImage(storageUrl: string) {
-        console.log(storageUrl);
         const res = await this.api.get(storageUrl, {responseType: "arraybuffer", headers: {
             Accept: '*/*',
         }});
@@ -36,7 +35,6 @@ export class CCAPI {
     }
 
     public async getImageBuffer(storageUrl: string) {
-        console.log(storageUrl);
         const res = await this.api.get(storageUrl, {responseType: "arraybuffer", headers: {
             Accept: '*/*',
         }});

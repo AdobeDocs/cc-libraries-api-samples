@@ -22,7 +22,6 @@ router.get('/callback', async (req, res, next) => {
         req.session.refreshToken = response.data.refresh_token;
         res.redirect('/');
     } catch (error) {
-        console.log(error);
         res.render('index', { title: 'Login failed' })
     }
 });
