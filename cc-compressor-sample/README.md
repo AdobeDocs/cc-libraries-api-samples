@@ -40,4 +40,4 @@ Run the following command for running the backend:
 npm run dev
 ```
 
-
+> Note: On following the above steps, the project will run on your localhost server using `http` protocol. To use `https` please follow [this blog](https://web.dev/how-to-use-local-https/).
